@@ -8,6 +8,7 @@
 	<form action="user.php" method="GET">
 		<label for="last_name">Last Name :<input type="text" name="last_name"></label>
 		<label for="first_name">First Name :<input type="text" name="first_name"></label>
+		<button type="submit">Send</button>
 	</form>
 	
 </body>
