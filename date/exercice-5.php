@@ -2,7 +2,7 @@
 	$date1 = strtotime('now');
 	$date2 = strtotime('16 May 2016');
 	$interval = $date1 - $date2;
-	$nbJours = $interval / (360*60*24);
+	$nbJours = $interval / (60*60*24);
  ?><!DOCTYPE html>
 <html lang="en">
 <head>
