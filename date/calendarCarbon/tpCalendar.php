@@ -45,7 +45,7 @@
 				<th>Samedi</th>
 			</tr>
 
-			<?php //(isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
+			<?php (isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
 		</table>
 	</div>
 

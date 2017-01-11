@@ -7,11 +7,17 @@
 	$year = intval($_GET['year'], 10);
 
 	$numberOfDays = getNumberOfDays($month, $year);
+	$firstDayOfWeek = getFirstDayOfMonth($month, $year);
 
 	function getNumberOfDays($month, $year){
 		$monthToEvaluate = Carbon::createFromDate($year, $month, 1);
 		$monthAfter = $monthToEvaluate->copy()->addMonth();
 		return $monthToEvaluate->diffInDays($monthAfter);	
+	}
+	
+	function getFirstDayOfMonth($month, $year){
+		$stringMonth = Carbon::parse(Carbon::createFromDate($year, $month, 1));
+		return $stringMonth->dayOfWeek;
 	}
 
 	function createCalendar($startingDay, $numberOfDays){
