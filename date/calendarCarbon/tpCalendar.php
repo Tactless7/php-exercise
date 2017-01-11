@@ -31,9 +31,9 @@
 		</select>
 		<button type="submit">Créer</button>
 	</form>
-
+	<?php if (isset($_GET['month']) && isset($_GET['year'])): ?>
 	<div>
-		<h2> <?= isset($_GET['month']) && isset($_GET['year'])? $months[$month].' '.$year : null ?> </h2>
+		<h2> <?= isset($_GET['month']) && isset($_GET['year']) ? $months[$month].' '.$year : null ?> </h2>
 		<table>
 			<tr>
 				<th>Dimanche</th>
@@ -48,6 +48,7 @@
 			<?php (isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
 		</table>
 	</div>
+	<?php endif; ?>
 
 </body>
 </html>
