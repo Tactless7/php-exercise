@@ -1,4 +1,4 @@
-<?php include 'calendar.php' ?><!DOCTYPE html>
+<?php include __DIR__.'/calendar.php' ?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
