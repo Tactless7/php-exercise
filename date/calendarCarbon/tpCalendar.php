@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<form action="tpCalendrier.php" method="GET">
+	<form action="tpCalendar.php" method="GET">
 		<select name="month" id="month">
 			<option value="1">January</option>
 			<option value="2">February</option>
@@ -45,7 +45,7 @@
 				<th>Samedi</th>
 			</tr>
 
-			<?php (isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
+			<?php //(isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
 		</table>
 	</div>
 

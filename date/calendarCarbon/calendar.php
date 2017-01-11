@@ -3,14 +3,17 @@
 	use Carbon\Carbon;
 	
 	$months = array(1 => 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
-	$month = $_GET['month'];
-	$year = $_GET['year'];
+	$month = intval($_GET['month'], 10);
+	$year = intval($_GET['year'], 10);
 
+	$numberOfDays = getNumberOfDays($month, $year);
 
-	$now = Carbon::now();
-	
+	function getNumberOfDays($month, $year){
+		$monthToEvaluate = Carbon::createFromDate($year, $month, 1);
+		$monthAfter = $monthToEvaluate->copy()->addMonth();
+		return $monthToEvaluate->diffInDays($monthAfter);	
+	}
 
-	
 	function createCalendar($startingDay, $numberOfDays){
 		$countDayOfWeek = 0; //Variable qui sert à savoir quand faire un nouveau row
 		$date = 1; //Date à inscrire dans les cases
