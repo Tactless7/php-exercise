@@ -5,15 +5,11 @@
 
 	$firstDayOfWeek = getFirstDayOfWeek($months, $month, $year);
 	$numberOfDays = getNumberOfDays($months, $month, $year);
-	// var_dump($firstDayOfWeek);
-	// createCalendar($firstDayOfWeek, $numberOfDays);
 
 	//Retourne l'index du jour de la semaine (entre 0 et 6)
 	function getFirstDayOfWeek($months, $month, $year){
 		$firstDayTimestamp = strtotime('1 '.$months[$month].' '.$year);
-		$firstDayIndex = date('w', $firstDayTimestamp);
-		var_dump($firstDayIndex);
-		return $firstDayIndex;
+		return date('w', $firstDayTimestamp);
 	}
 
 	//Retourne le nombre de jours dans le mois
@@ -22,8 +18,6 @@
 		$monthAfter = strtotime('1 '.$months[$month+1].' '.$year);
 		$interval = $monthAfter - $monthToEvaluate;
 		return $interval / (60*60*24);
-		// var_dump($numberOfDays);
-		// return $numberOfDays;
 	}
 
 
@@ -46,9 +40,7 @@
 				echo'<td>'. $date .'</td>';
 				$date++;
 				$countDayOfWeek++;
-			}
-			
-			
+			}			
 		}
 	}
  ?>
