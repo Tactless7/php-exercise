@@ -1,0 +1,9 @@
+table {
+	border-collapse: collapse;
+}
+td {
+	border: solid black 1px;
+	text-align: justify;
+	width: 100px;
+	height: 100px;
+}
