@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TP Calendrier</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -32,6 +33,7 @@
 	</form>
 
 	<div>
+		<h2> <?= isset($_GET['month']) && isset($_GET['year'])? $months[$month].' '.$year : null ?> </h2>
 		<table>
 			<tr>
 				<th>Dimanche</th>
@@ -43,7 +45,7 @@
 				<th>Samedi</th>
 			</tr>
 
-			<?php (isset($_GET['month']) && isset($_GET['year'])) ? null : null ?>
+			<?php (isset($_GET['month']) && isset($_GET['year'])) ? createCalendar($firstDayOfWeek, $numberOfDays) : null ?>
 		</table>
 	</div>
 

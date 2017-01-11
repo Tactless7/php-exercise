@@ -3,28 +3,52 @@
 	$month = intval($_GET['month']);
 	$year = intval($_GET['year']);
 
-	// $calendarPage = date_create(); 
-	// date_date_set($calendarPage, $year, $month, 1);
-	// date_format($calendarPage, 'm-Y');
-	// var_dump($calendarPage);
+	$firstDayOfWeek = getFirstDayOfWeek($months, $month, $year);
+	$numberOfDays = getNumberOfDays($months, $month, $year);
+	// var_dump($firstDayOfWeek);
+	// createCalendar($firstDayOfWeek, $numberOfDays);
 
 	//Retourne l'index du jour de la semaine (entre 0 et 6)
-	function getFirstDayOfWeek(){
-		$jd = gregoriantojd($month, 1, $year);
-		return JDDayOfWeek($jd, 0);
+	function getFirstDayOfWeek($months, $month, $year){
+		$firstDayTimestamp = strtotime('1 '.$months[$month].' '.$year);
+		$firstDayIndex = date('w', $firstDayTimestamp);
+		var_dump($firstDayIndex);
+		return $firstDayIndex;
 	}
 
 	//Retourne le nombre de jours dans le mois
-	function getNumberOfDay($months, $month, $year){
+	function getNumberOfDays($months, $month, $year){
 		$monthToEvaluate = strtotime('1 '.$months[$month].' '.$year);
 		$monthAfter = strtotime('1 '.$months[$month+1].' '.$year);
 		$interval = $monthAfter - $monthToEvaluate;
-		$numberOfDay = $interval / (60*60*24);
-		return $numberOfDay;
+		return $interval / (60*60*24);
+		// var_dump($numberOfDays);
+		// return $numberOfDays;
 	}
 
 
-	function createCalendar($startingDay, $numberOfDay){
-		
+	function createCalendar($startingDay, $numberOfDays){
+		$countDayOfWeek = 0; //Variable qui sert à savoir quand faire un nouveau row
+		$date = 1; //Date à inscrire dans les cases
+
+		for ($i=0; $i < ($startingDay + $numberOfDays); $i++) { 
+			if ($countDayOfWeek === 0) {
+				echo '<tr>';
+			}
+			if ($countDayOfWeek === 7){
+				echo '</tr>';
+				$countDayOfWeek = 0;
+			}
+			if ($i < $startingDay){
+				echo '<td></td>';
+				$countDayOfWeek++;
+			} else {
+				echo'<td>'. $date .'</td>';
+				$date++;
+				$countDayOfWeek++;
+			}
+			
+			
+		}
 	}
  ?>
